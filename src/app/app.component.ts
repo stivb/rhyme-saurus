@@ -17,6 +17,12 @@ export class AppComponent {
   synonymsToShow:string[] = new Array();
   rhymesToShow:string[] = new Array();
 
+  allRhymes:string[];
+
+  rhymesBySyllCountKVP=new Object();
+
+  syllCounts = new Array();
+
 
   constructor(private dataService:DataService) {}
 
@@ -30,7 +36,22 @@ export class AppComponent {
   getDmRhymes(iput:string)
   {
     this.dataService.dmApiGetRhymes(iput).subscribe((data:dmRhyme[]) => {
-      this.rhymesToShow = data.map(y=>y.word);
+      this.allRhymes = data.map(y=>y.word);
+      var highestSyll = Math.max.apply(null, data.map(x=>x.numSyllables));
+      let i;
+
+      this.rhymesBySyllCountKVP=new Object();
+      for (i=1;i<highestSyll+1;i++)
+      {
+          var wdsWithISyllables:string[];
+          wdsWithISyllables = data.filter(x=> x.numSyllables===i).map(y=>y.word);
+          if (wdsWithISyllables.length>0) this.rhymesBySyllCountKVP[i]=wdsWithISyllables;
+      }
+      this.syllCounts = Object.keys(this.rhymesBySyllCountKVP);
+
+      var lowestSyll = Math.min.apply(null,this.syllCounts);
+      this.rhymesToShow = this.rhymesBySyllCountKVP[lowestSyll];
+
     });
   }
 }
