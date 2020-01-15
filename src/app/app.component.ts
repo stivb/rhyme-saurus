@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'rhyme-saurus';
 
   currentWordQuery="";
+  currentRhymeQuery="";
 
   synonymsToShow:string[] = new Array();
   rhymesToShow:string[] = new Array();
@@ -22,6 +23,8 @@ export class AppComponent {
   rhymesBySyllCountKVP=new Object();
 
   syllCounts = new Array();
+
+  currentSyllableCount:number;
 
 
   constructor(private dataService:DataService) {}
@@ -33,8 +36,16 @@ export class AppComponent {
     });
   }
 
+  showRhymesBySyllable(x:number)
+  {
+    this.currentSyllableCount=x;
+    this.rhymesToShow = this.rhymesBySyllCountKVP[x];
+
+  }
+
   getDmRhymes(iput:string)
   {
+    this.currentRhymeQuery = iput;
     this.dataService.dmApiGetRhymes(iput).subscribe((data:dmRhyme[]) => {
       this.allRhymes = data.map(y=>y.word);
       var highestSyll = Math.max.apply(null, data.map(x=>x.numSyllables));

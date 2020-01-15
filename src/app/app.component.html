@@ -6,10 +6,16 @@
 </form>
 
 <div class="halfDiv">
-<span *ngFor="let x of synonymsToShow"   (click)="getDmRhymes(x)">{{x}} </span>
+<span *ngFor="let x of synonymsToShow"   (click)="getDmRhymes(x)"
+[ngClass]="{'hilite':x===currentRhymeQuery}">{{x}} </span>
 
 </div>
 <hr/>
+<div>
+  <span *ngFor="let x of syllCounts"   (click)="showRhymesBySyllable(x)"
+  [ngClass]="{'hilite':x===currentSyllableCount}">{{x}} </span>
+
+</div>
 
 <div class="rhymes">
 
