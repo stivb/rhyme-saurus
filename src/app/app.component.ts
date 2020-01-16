@@ -36,6 +36,8 @@ export class AppComponent {
     });
   }
 
+  
+
   showRhymesBySyllable(x:number)
   {
     this.currentSyllableCount=x;

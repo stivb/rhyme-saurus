@@ -1,5 +1,5 @@
 
-<app-synbin></app-synbin>
+<app-synbin  (selectionChanged)="getDmRhymes($event)"></app-synbin>
 <hr/>
 <div>
   <span *ngFor="let x of syllCounts"   (click)="showRhymesBySyllable(x)"

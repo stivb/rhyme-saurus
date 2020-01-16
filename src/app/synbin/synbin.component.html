@@ -11,6 +11,6 @@
     [ngClass]="{'hilite':x===currentRhymeQuery}">{{x}} </span>
     -->
     <app-sinonimo *ngFor="let x of synonymsToShow" [src]="currentRhymeQuery" [syn]="x"
-    (click)="getDmRhymes(x)"></app-sinonimo>
+    (click)="setSelectedSynonym(x)"></app-sinonimo>
     
     </div>
