@@ -6,8 +6,11 @@
 </form>
 
 <div class="halfDiv">
+  <!--
 <span *ngFor="let x of synonymsToShow"   (click)="getDmRhymes(x)"
 [ngClass]="{'hilite':x===currentRhymeQuery}">{{x}} </span>
+-->
+<app-sinonimo *ngFor="let x of synonymsToShow" [src]="currentRhymeQuery" [syn]="x" ></app-sinonimo>
 
 </div>
 <hr/>

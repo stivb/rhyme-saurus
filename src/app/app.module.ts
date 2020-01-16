@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import {HttpClientModule } from '@angular/common/http';
 import {DataService} from './data.service';
 import {FormsModule} from '@angular/forms';
+import { SinonimoComponent } from './sinonimo/sinonimo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SinonimoComponent
   ],
   imports: [
     BrowserModule,
