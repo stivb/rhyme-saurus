@@ -1,19 +1,5 @@
-<form>
 
-<input [(ngModel)]="currentWordQuery" name="tbQuery"/>
-<button (click)="getDmSynonyms()">Get Synonyms</button>
-
-</form>
-
-<div class="halfDiv">
-  <!--
-<span *ngFor="let x of synonymsToShow"   (click)="getDmRhymes(x)"
-[ngClass]="{'hilite':x===currentRhymeQuery}">{{x}} </span>
--->
-<app-sinonimo *ngFor="let x of synonymsToShow" [src]="currentRhymeQuery" [syn]="x"
-(click)="getDmRhymes(x)"></app-sinonimo>
-
-</div>
+<app-synbin></app-synbin>
 <hr/>
 <div>
   <span *ngFor="let x of syllCounts"   (click)="showRhymesBySyllable(x)"

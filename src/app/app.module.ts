@@ -8,11 +8,13 @@ import {HttpClientModule } from '@angular/common/http';
 import {DataService} from './data.service';
 import {FormsModule} from '@angular/forms';
 import { SinonimoComponent } from './sinonimo/sinonimo.component';
+import { SynbinComponent } from './synbin/synbin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SinonimoComponent
+    SinonimoComponent,
+    SynbinComponent
   ],
   imports: [
     BrowserModule,
