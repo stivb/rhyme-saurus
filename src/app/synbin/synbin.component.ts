@@ -25,6 +25,9 @@ export class SynbinComponent implements OnInit {
   {
     this.dataService.dmApiGetSynonyms(this.currentWordQuery).subscribe((data:dmWord[]) => {
         this.synonymsToShow = data.map(y=>y.word);
+        this.synonymsToShow.push(this.currentWordQuery);
+        this.currentRhymeQuery=this.currentWordQuery;
+        this.selectionChanged.emit(this.currentRhymeQuery);
     });
   }
 

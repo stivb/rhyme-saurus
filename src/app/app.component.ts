@@ -36,13 +36,10 @@ export class AppComponent {
     });
   }
 
-  
-
   showRhymesBySyllable(x:number)
   {
     this.currentSyllableCount=x;
     this.rhymesToShow = this.rhymesBySyllCountKVP[x];
-
   }
 
   getDmRhymes(iput:string)
